@@ -64,3 +64,22 @@
             - Clones the reference repository.
             - Pulls changes from developer's repository to his or her repository.
           - Dictator pulls changes from lieutenant's repository and push to the reference repository.
+
+## RPC
+1. __What's Remote Procedure Call (RPC)?
+    - ___Professor's key concept:___ Communication remotely like local functional call.
+    - __Wikipedia:__ RPC is when a computer program causes a procedure (subroutine) to execute in a different address space (commonly on another computer or on a shared network), which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction.
+2. __What's synchronous/Asynchronous RPC?__
+    - __Synchronous:__ process needs to wait (block)
+      - Caller blocks until a response is returned or an exception is raised.
+    - __Asynchronous:__ Come back to query the result in the future.
+        - Caller continues immediately and can later block until response is delivered.
+3. What's good/bad about RPC compared to Restful?
+    - ___Professor's Key point:___ table in the slide (in terms of ease, efficiency and scalability) __no winner__.
+
+    Markdown | Less | Pretty
+    --- | --- | ---
+    *Still* | `renders` | **nicely**
+    1 | 2 | 3
+
+    
