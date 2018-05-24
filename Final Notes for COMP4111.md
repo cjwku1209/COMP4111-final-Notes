@@ -66,7 +66,7 @@
           - Dictator pulls changes from lieutenant's repository and push to the reference repository.
 
 ## RPC
-1. __What's Remote Procedure Call (RPC)?
+1. __What's Remote Procedure Call (RPC)?__
     - ___Professor's key concept:___ Communication remotely like local functional call.
     - __Wikipedia:__ RPC is when a computer program causes a procedure (subroutine) to execute in a different address space (commonly on another computer or on a shared network), which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction.
 2. __What's synchronous/Asynchronous RPC?__
