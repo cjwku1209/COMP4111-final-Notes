@@ -172,3 +172,15 @@ resource that you are looking for
         - ```500 Internal Server Error```
 4. __Why Cookie is important for HTTP/RESTful?__
     - ___Professor's Key point:___ Server side does not keep any state of client. But server needs. Use cookies as a token of who you are. Break what it means to be REST.
+
+## Web Service
+> A network accessible interface to application programs, built using standard internet technologies
+
+1. __Basic Components of a Web Service__
+    - __Fire Wall__: These components decided what HTTP messages get out, and what get in.
+      - These components enforce __Web security__.
+    - __Routers__: These components decide where to send HTTP messages.
+      -	These components manage __Web scaling__.
+    - __Caches__: These components decided if a saved copy can be used.
+      -	These components increase __Web speed__.
+2. __What's SOAP(Simple Object Access Protocol)?__
