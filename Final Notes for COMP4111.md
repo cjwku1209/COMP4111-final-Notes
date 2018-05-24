@@ -77,9 +77,10 @@
 3. What's good/bad about RPC compared to Restful?
     - ___Professor's Key point:___ table in the slide (in terms of ease, efficiency and scalability) __no winner__.
 
-    Markdown | Less | Pretty
-    --- | --- | ---
-    *Still* | `renders` | **nicely**
-    1 | 2 | 3
-
-    
+      Factors | RPC | REST
+      --- | --- | ---
+      Easy to learn?| Learning native, no learning curve | language independent speaks HTTP
+      Easy to use?| Deploy specialized middleware substrate | Deploy plugins to web servers
+      Easy to change?| Recompile server/client code | Change of URL strings
+      Easy to scale?|More users = more states to track on server | Client maintain states, server stores data
+      Resilient to Error?| Need to handle class error| TCP/IP level reliability
