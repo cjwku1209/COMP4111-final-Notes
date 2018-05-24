@@ -84,3 +84,18 @@
       Easy to change?| Recompile server/client code | Change of URL strings
       Easy to scale?|More users = more states to track on server | Client maintain states, server stores data
       Resilient to Error?| Need to handle class error| TCP/IP level reliability
+    - - Additional Info (__Comparison__)
+        - Both are mainstream interfaces for distributed computing
+        - Philosophically Different
+          - In RPC, especially distributed objects, server maintains computational states.
+          - In REST, client maintains computational states.
+        - Example: Update last name of a user in our calendar system.
+          - REST: two operation
+            - HTTP GET: identify URL for the user
+            - HTTP POST: update resource, client supplies all the information.
+          - RPC: one operation
+            - Invoke operation on the user object, server maps object to ID.
+  4. __What's stub/Skeleton__
+      - ___Professor's key concept:___
+        - __Stub:__ adapter that translate a function call into a remote message.
+        - __Skeleton__: adapter that translate a remote message to a function call.
