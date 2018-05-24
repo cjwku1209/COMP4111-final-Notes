@@ -119,3 +119,56 @@
       - scalability
       - Code reusability
 3. __Can you write a simple JSON definition for a Java class?__
+
+## RESTful
+1. __Basic definition__
+    - REST= REpresentation State Transfer
+      - To describe a design pattern for implementing networked systems.
+      - Intended to evoke an image of how a well-designed Web application behaves: a network of web pages (a virtual state-machine), where the user progresses through an application by selecting links (State transitions), resulting in the next page (representing the next state of the application) by transferred to the user and rendered for their use.
+2. __Pros and Cons of using RESTful design when implementing the same functionality__
+    - __Pros__
+      -  Do not identify a physical object. The advantage of using a
+logical identifier (URL) is that changes to the underlying
+implementation of the resource will be transparent to clients.
+    - __Cons__
+      - Loose coupling
+3.  __Basic structure of the HTTP Protocol__
+    - Browsers use the HTTP protocol to talk to
+web servers
+    - All they need is just an URL which
+includes the hostname and the path of the
+resource that you are looking for
+
+    ![image](http.png )
+    - To get to a Web page
+      - Enter URL into the browser.
+      - Browser connects to servers
+      - browser sends an HTTP request to the servers
+      - Server returns HTTP response.
+      - Browser parses the requested resource and then make additional request for resources.
+
+    ![image](httpSummary.png )
+    - __Connecting the server__
+        - The HTTP protocol isa simple client and server process.
+        - The browser connects to the server typically through port 80
+        -  Some of the other common ports are listed bellow
+
+    ![image](port.png )
+    - __Sending an HTTP Request__
+      - Upon successfully connecting to the server, the browser sends an HTTP request in the following form:
+
+    ![image](request.png )
+    - This command asks for the root (/) resource from the server
+    - This is the minimal HTTP request so that you can optionally add more ‘headers
+
+    ![image](RequestMethod.png )
+    - __Returning an HTTP response__
+      - Once the server gets the request, it will initiate an appropriate response.
+        - ```200 OK```
+        - ```201 Created```
+        - ```400 Bad Request```
+        - ```404 Not Found```
+        - ```409 Conflict```
+        - ```500 Internal Server Error```
+4. __Why Cookie is important for HTTP/RESTful?__
+    - ___Professor's Key point:___ Server side does not keep any state of client. But server needs. Use cookies as a token of who you are. Break what it means to be REST.
