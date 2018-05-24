@@ -171,4 +171,4 @@ resource that you are looking for
         - ```409 Conflict```
         - ```500 Internal Server Error```
 4. __Why Cookie is important for HTTP/RESTful?__
-  - ___Professor's Key point:___ Server side does not keep any state of client. But server needs. Use cookies as a token of who you are. Break what it means to be REST.
+    - ___Professor's Key point:___ Server side does not keep any state of client. But server needs. Use cookies as a token of who you are. Break what it means to be REST.
