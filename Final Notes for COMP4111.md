@@ -1,7 +1,7 @@
 # COMP4111 Final
 ## Configuration Management
 1. __Main reasons for doing Configuration Management__
-    - __ _Professor Key Point:_ __A recorder to record what you are doing.
+    - ___Professor Key Point:___ A recorder to record what you are doing.
     - __Slide:__ Manages evolving Software System & controls the cost involved making changes to a system.
 2. __Basic Concepts: version, baseline, promotion, release, revision__
     - __Version:__
