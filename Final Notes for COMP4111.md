@@ -84,7 +84,7 @@
       Easy to change?| Recompile server/client code | Change of URL strings
       Easy to scale?|More users = more states to track on server | Client maintain states, server stores data
       Resilient to Error?| Need to handle class error| TCP/IP level reliability
-    - - Additional Info (__Comparison__)
+    - Additional Info (__Comparison__)
         - Both are mainstream interfaces for distributed computing
         - Philosophically Different
           - In RPC, especially distributed objects, server maintains computational states.
@@ -99,3 +99,23 @@
       - ___Professor's key concept:___
         - __Stub:__ adapter that translate a function call into a remote message.
         - __Skeleton__: adapter that translate a remote message to a function call.
+
+## Encoding
+> Note: for question 1 & 2, the good of XML is the bad for IIOP and vice versa
+
+1. __What's good and bad about XML?__
+    - __Good__
+      - Truly Portable data
+      - Easily readable by human users
+      - Very expressive (semantics near data)
+      - Very flexible and customizable (no finite tag set)
+      - Easy to use from programs (libraries available)
+      - Easy to convert into other representations (XML transformation Languages)
+      - Many additional standards and tools
+      - Widely used and supported.
+2. __What's good and bad about IIOP?__
+    - __Good__
+      - Communication transparency
+      - scalability
+      - Code reusability
+3. __Can you write a simple JSON definition for a Java class?__
