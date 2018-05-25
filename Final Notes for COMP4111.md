@@ -197,7 +197,6 @@ resource that you are looking for
   __Basic Web Service Usage Scenario__
 
   ![image](Web_Service_Scenerio.png )
-
 2. __What's SOAP(Simple Object Access Protocol)?__
     - Light weight messaging framework based on XML.
     - Supports simple messaging and RPC.
@@ -318,3 +317,26 @@ resource that you are looking for
 
         ![image](WSDL_response.png )
 4. __What's UDDI? (Universal Description Discovery and Integration)__
+  - Standard for describing, publishing and finding web Services
+    - still evolving
+    - use XML-based description files for Services
+  - Main Components
+  - White pages: basic contact information about an organization
+  - Yellow pages: classification of organization based on industrial categorization
+  - Green pages: technical description of services offered by registered organization
+- Access to UDDI Registry
+  - Standard UDDI API (accessible via SOAP)
+  - Web Browser
+- Data Structure (XML)
+  - Business entity: general information + business Services
+  - Business services: business level description + binding templates
+  - Binding templates: access point + tModel (service types)
+  - tModel: abstract definition of a web service
+
+  ![image](UDDI_step1.png)
+
+  ![image](UDDI_step2.png )
+
+  ![image](UDDI_step3.png )
+
+  ![image](UDDI_step4.png )
