@@ -221,10 +221,10 @@ resource that you are looking for
 
       ![image](SOAP_message.png )
 
-      __SOAP Skeleton__
+      #### SOAP Skeleton
       ![image](SOAP_Skeleton.png )
 
-      __SOAP Example__
+      #### SOAP Example
       ![image](SOAP_example.png )
 
     - __SOAP RPC__
