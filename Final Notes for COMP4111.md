@@ -221,7 +221,9 @@ resource that you are looking for
       - __Body:__ data exchanged(required)
 
       ![image](SOAP_message.png )
+
       ![image](SOAP_Skeleton.png )
+      
       ![image](SOAP_example.png )
 
     __SOAP RPC__
