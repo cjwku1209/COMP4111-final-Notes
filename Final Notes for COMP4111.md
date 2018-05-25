@@ -211,8 +211,8 @@ resource that you are looking for
       - __forwarding intermediaries__: route messages based on semantics of messages
       - __active intermediaries__: do additional processing before forwarding messages, may modify message   
 
-  __SOAP Message__
-    - Soap Message consists of
+    - __SOAP Message__
+    - Soap Message consists of...
       - __Envelope:__ top element of XML message (required)
       - __Header:__ general information on message such as security (optional)
         - elements are application-specific
@@ -225,21 +225,21 @@ resource that you are looking for
 
       ![image](SOAP_example.png )
 
-    __SOAP RPC__
-    - Encapsulate RPC into SOAP messages
-      - Procedure name and arguments
-      - Response (return value)
-      - processing instructions (transactional RPC)
+    - __SOAP RPC__
+      - Encapsulate RPC into SOAP messages
+        - Procedure name and arguments
+        - Response (return value)
+        - processing instructions (transactional RPC)
 
-      __Request message example__
+        __Request message example__
 
-      ![image](SOAP_RPC_request.png )
+        ![image](SOAP_RPC_request.png )
 
-      __Response message example__
+        __Response message example__
 
-      ![image](SOAP_RPC_response.png )
+        ![image](SOAP_RPC_response.png )
 
-    __SOAP Processing Model__
+    - __SOAP Processing Model__
       - Element in the Header may carry SOAP-specific attributes controlling the message processing
         - Attributes from namespace
         - ```role``` attribute
@@ -253,7 +253,7 @@ resource that you are looking for
         - ```encodingStyle" attributes
           - indicates the encoding rules used to serialize parts of SOAP messages
 
-    __The Fault element__
+    - __The Fault element__
       - Carries and error message
       - If present, must appear as a child of <Body>
       - Must only appear Once
@@ -265,7 +265,7 @@ resource that you are looking for
       ```<faultactor>```| Information about who caused the fault to happen
       ```<detail>```| Holds application specific error information related to the Body element.
 
-    __Protocol Binding__
+    - __Protocol Binding__
       - Binding to different protocol possible: HTTP, SMTP
       - Different HTTP bindings: ```HTTP POST```, ```HTTP GET```
         - Standard HTTP POST for request-response
