@@ -198,7 +198,7 @@ resource that you are looking for
   __Basic Web Service Usage Scenario__
 
   ![image](Web_Service_Scenerio.png )
-  
+
 2. __What's SOAP(Simple Object Access Protocol)?__
     - Light weight messaging framework based on XML.
     - Supports simple messaging and RPC.
@@ -210,8 +210,65 @@ resource that you are looking for
       - Fault handling
     - SOAP supports advanced messaging processing:
       - __forwarding intermediaries__: route messages based on semantics of messages
-      - __active intermediaries__: do additional processing before forwarding messages, may modify message    
+      - __active intermediaries__: do additional processing before forwarding messages, may modify message   
+
   __SOAP Message__
     - Soap Message consists of
+      - __Envelope:__ top element of XML message (required)
+      - __Header:__ general information on message such as security (optional)
+        - elements are application-specific
+        - may be processed and changed by intermediaries or recipient.
+      - __Body:__ data exchanged(required)
+
+      ![image](SOAP_message.png )
+      ![image](SOAP_Skeleton.png )
+      ![image](SOAP_example.png )
+
+    __SOAP RPC__
+    - Encapsulate RPC into SOAP messages
+      - Procedure name and arguments
+      - Response (return value)
+      - processing instructions (transactional RPC)
+
+      __Request message example__
+
+      ![image](SOAP_RPC_request.png )
+
+      __Response message example__
+
+      ![image](SOAP_RPC_response.png )
+
+    __SOAP Processing Model__
+      - Element in the Header may carry SOAP-specific attributes controlling the message processing
+        - Attributes from namespace
+        - ```role``` attribute
+          - If processing node matches role in header it must process the header
+          - special role ```next```: receiving node must be capable of processing header
+          - special role ```ultimateReciever```: receiving node must be capable of processing body.
+        - ```mustUnderstand``` attribute
+          - processing of header information is mandatory
+        - ```relay``` attribute
+          - header block must be relayed if not processed
+        - ```encodingStyle" attributes
+          - indicates the encoding rules used to serialize parts of SOAP messages
+
+    __The Fault element__
+      - Carries and error message
+      - If present, must appear as a child of <Body>
+      - Must only appear Once
+      - Has the following sub-elements:
+      Sub Element | Description
+      --- | ---
+      ```<faultcode>```| A code for identifying the fault
+      ```<faultstring>```| A human readable explanation of the fault.
+      ```<faultactor>```| Information about who caused the fault to happen
+      ```<detail>```| Holds application specific error information related to the Body element.
+
+    __Protocol Binding__
+      - Binding to different protocol possible: HTTP, SMTP
+      - Different HTTP bindings: ```HTTP POST```, ```HTTP GET```
+        - Standard HTTP POST for request-response
+
+    ![image](SOAP_request_response.png )
 3. __What's WSDL?(Web Service Description Language)__
 4. __What's UDDI? (Universal Description Discovery and Integration)__
