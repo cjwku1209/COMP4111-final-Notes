@@ -175,7 +175,6 @@ resource that you are looking for
 
 ## Web Service
 > A Web Service is a URL-addressable software resource that performs functions (or a function)
->
 
 1. __Basic Components of a Web Service__
     - __Fire Wall__: These components decided what HTTP messages get out, and what get in.
@@ -223,7 +222,7 @@ resource that you are looking for
       ![image](SOAP_message.png )
 
       ![image](SOAP_Skeleton.png )
-      
+
       ![image](SOAP_example.png )
 
     __SOAP RPC__
