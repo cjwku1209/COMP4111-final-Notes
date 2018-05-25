@@ -274,4 +274,47 @@ resource that you are looking for
 
     ![image](SOAP_request_response.png )
 3. __What's WSDL?(Web Service Description Language)__
+  - Description of Web service in XML format
+    - abstract description of operations and their parameters(messages)
+    - binding to a concrete network protocol (e.g. SOAP)
+    - Specification of endpoints for accessing the service.
+  - Structure of a WSDL document
+
+    ![image](WSDL_structure.png )
+
+  - __Overview of Defining WSDL Services__
+    1. Define in XML Schema the message types when invoking the service: MT1, MT2, etc.
+    2. Define (names) messages by using these types e.g.
+      - message m1 has type MT1
+      - message m2 has type MT2 etc...
+    3. Define Services that consist of one ore more operations; each operation is implemented by the exchange of messages
+      - Service S offers operation O1; for executing O1 first send a request message m1, then a response message m2 is returned
+    4. Define a Binding B to a specific protocol. e.g. Soap
+      - Service S is implemented in SOAP; the SOAP messages are constructed from the abstract messages m1 and m2 by, e.g. inlining the message as body of SOAP messages
+    5. Service S is provided with binding B at the following URI's (called ports)
+
+    ![image](WSDL_structure_example.png )
+
+    - __Example: Definition of Types__
+
+      ![image](WSDL_types.png )
+    - __Example: Definition of Messages and PortType__
+
+    ![image](WSDL_porttypes.png )
+    - __Example: Definition of Binding and Services__
+
+    ![image](WSDL_binding.png )
+  - __PortTypes__
+    - WSDL supports 4 message patterns that an endpoint(= service provider) can support for an operations
+      - __one-way__: message is sent to service provider without expecting response.
+      - __request-response__: request is sent to service provider expecting response.
+      - __solicit-response:__ provider sends a message and expects response.
+      - __notification:__ message is sent by service provider
+    - Message patterns are distinguished by the use of input/output elements.
+      - one way:
+
+        ![image](WSDL_oneway.png )
+      - request/response:
+
+        ![image](WSDL_response.png )
 4. __What's UDDI? (Universal Description Discovery and Integration)__
