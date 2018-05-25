@@ -221,8 +221,10 @@ resource that you are looking for
 
       ![image](SOAP_message.png )
 
+      __SOAP Skeleton__
       ![image](SOAP_Skeleton.png )
 
+      __SOAP Example__
       ![image](SOAP_example.png )
 
     - __SOAP RPC__
@@ -233,11 +235,11 @@ resource that you are looking for
 
         __Request message example__
 
-        ![image](SOAP_RPC_request.png )
+        ![image](SOAP_RPC_Request.png )
 
         __Response message example__
 
-        ![image](SOAP_RPC_response.png )
+        ![image](SOAP_RPC_Response.png )
 
     - __SOAP Processing Model__
       - Element in the Header may carry SOAP-specific attributes controlling the message processing
@@ -250,7 +252,7 @@ resource that you are looking for
           - processing of header information is mandatory
         - ```relay``` attribute
           - header block must be relayed if not processed
-        - ```encodingStyle" attributes
+        - ```encodingStyle``` attributes
           - indicates the encoding rules used to serialize parts of SOAP messages
 
     - __The Fault element__
