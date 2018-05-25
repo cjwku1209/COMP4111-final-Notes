@@ -174,7 +174,8 @@ resource that you are looking for
     - ___Professor's Key point:___ Server side does not keep any state of client. But server needs. Use cookies as a token of who you are. Break what it means to be REST.
 
 ## Web Service
-> A network accessible interface to application programs, built using standard internet technologies
+> A Web Service is a URL-addressable software resource that performs functions (or a function)
+>
 
 1. __Basic Components of a Web Service__
     - __Fire Wall__: These components decided what HTTP messages get out, and what get in.
@@ -183,4 +184,33 @@ resource that you are looking for
       -	These components manage __Web scaling__.
     - __Caches__: These components decided if a saved copy can be used.
       -	These components increase __Web speed__.
+  > All these components base their decisions and actions purely upon information in the HTTP header.
+
+  __Web Service Architecture__
+
+  ![image](webArch.png )
+
+  __Web Service Stack__
+
+  ![image](Web_Service_Stack.png )
+  - Set of standards for implementing web Service
+
+  __Basic Web Service Usage Scenario__
+
+  ![image](Web_Service_Scenerio.png )
 2. __What's SOAP(Simple Object Access Protocol)?__
+    - Light weight messaging framework based on XML.
+    - Supports simple messaging and RPC.
+    - SOAP consists of
+      - Envelope construct: defines the overall structure of messages
+      - Encoding rules: define the serialization of application data type.
+      - SOAP RPC: defines representation of remote procedure calls a response.
+      - Binding framework: binding to protocols such as HTTP, SMTP
+      - Fault handling
+    - SOAP supports advanced messaging processing:
+      - __forwarding intermediaries__: route messages based on semantics of messages
+      - __active intermediaries__: do additional processing before forwarding messages, may modify message    
+  __SOAP Message__
+    - Soap Message consists of
+3. __What's WSDL?(Web Service Description Language)__
+4. __What's UDDI? (Universal Description Discovery and Integration)__
