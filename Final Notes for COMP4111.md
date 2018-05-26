@@ -404,3 +404,15 @@ resource that you are looking for
       - Only entity beans needs methods to locate beans.
     - __Remote Interface__
       - Consists of remote methods you can call on a bean after the bean has been created and located.
+
+## Static Analysis
+1. __What's static analysis? Why should you use it?__
+    - __Static Analysis:__ is a method of computer program debugging that is done by examining the code without executing the program.
+    - for reliability, efficiency, usability, maintainability, portability
+2. __Can you do a simple symbolic execution?__
+![image](symbolic.png )
+3. __What's graph-based static analysis?__
+    - Transform a program into a graph representation and perform analysis on the graph.
+    - Control Flow Graph (CFG) is a representation of all paths that might be transversed through a program during its execution.
+      - _Nodes_ represent statements or basic blocks
+      - _Edges_ represent the transfer of control between nodes.
