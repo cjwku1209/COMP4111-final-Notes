@@ -438,9 +438,144 @@ resource that you are looking for
     -	Exist many solution algorithms, coherence protocols, etc …
     -	Simple solution: invalidation-based protocol with snooping.
 4. __Basic Architecture of GPU__
+  - NVidia	CUDA	Block	Diagram
+
   ![image](GPU.png )
   - Own	memory,	up	to	4GB
   - Up	to	30	multiprocessors	(cores),	each	core	has	8	thread	processors	(TPs)
   - Cores	can	run	different	sequential	code.	All	TPs	in	the	same	core	run	the	same	sequential	code
   - CPU	use	system	code	to	switch	threads.	GPU	does this	in	hardware.
     – Hide	the	read	latency	if	we	have	a	large	number threads
+
+## Parallel Programming (Software)
+1. __Differences between process and thread__
+    - __Process:__ an instance of a program in execution.
+    - __Thread:__ an execution flow of the process.
+      - Execution content
+        - Program counter (PC)
+        - Stack Pointer (SP)
+        - Data Registers
+        ![image](thread.png )
+  ___Differences___
+  - Process: unit of allocation
+    - Resources, privilages, etc...
+  - Thread: unit of Execution
+    -PC, SP, Registers
+  - Each process has one or more threads
+  - Each thread belong to one process.
+  - Process's intercommunication is expensive: need content switch
+  - Process is secure, one process cannot corrupt another process.
+  - Thread's inter-thread communication cheap: can use process memory and may not need to use content switch.
+  - Thread is not secure, a thread can write the memory used to another thread.
+2. __Event-based parallel processing__
+    - Mechanism
+      – Organize	code	around	arrival	of	events
+      – Write	software	in	state-machine	style
+        - When	this	event	occurs,	execute	this	function
+      – Library	support	to	register	interest	in	events
+    - Benefit
+      – Preserves	the	serial	natures	of	the	events
+      – Programmer	sees	events/functions	occurring	one	at	a	time
+    - Drawback
+      – Unnatural	for	some	continuous	logic
+      – Manual	stack	management
+  - How	to	program	in	event	style?
+    – Identify	events	and	appropriate	responses:
+    – Write	a	loop	that	handles	incoming	events	(I/O	events)
+    – Translate	low-level	 system	events	into	application	level	events
+    – Maintain	individual	application	state
+  - Drawbacks
+    – Writing	this	event	loop	for	each	program	is	tedious
+    – What	if	your	program	does	the	one	thing	in	parallel?
+      - Have	to	partition	up	state	 for	each	client
+      - Need	to	maintain	sets	of	file	descriptors
+    – What	if	your	program	does	many	things?	e.g.	let's	add	DNS	resolution
+      - Hard	to	be	modular	if	event	loop	knows	about	all	activities.
+      - And	knows	how	to	consult	all	state.
+  - We	would	prefer	abstraction
+    – Use	a	library	to	provide	main	loop	(e.g.	libasync)
+    – Programmer	provides	"callbacks"	 to	handle	events
+    – Break	up	code	into	functions	with	non-blocking	ops	let	the	library	handle	the	boring	async stuff
+    • It's	unfortunately	hard	for	async	programs	to	maintain	state
+  – Ordinary	programs	and	threads	use	variables
+    - Persist	across	function	calls,	and	blocking	operations.
+    - Stored	on	the	stack.
+    - Async	programs	can't	keep	state	on	the	stack.	Since	each	callback	must	return	immediately.
+      - How	to	maintain	state	across	calls?
+      - Use	global	variables
+      – Use	the	heap:	In	C	or	C++,	 programmers	package	up	state	in	a	generic	data structure.
+  • Hard	to	program
+  • No	type	safety
+  • Must	declare	 structs	for	every	set	of	state	transfer
+  • User	has	to	manage	memory	in	potentially	 tricky	cases
+  – Use	closure
+  • Library	help
+  • Language	support	:	LISP/Java	Inner	classes/AspectJ	around	advices
+3. __ Basic definition of MPI__
+    - A message parsing library specification
+      - extended message-passing Model
+      - not	a	language	or	compiler	specification
+      – not	a	specific	implementation	or	product
+    - For	parallel	computers,	clusters,	and	heterogeneous	network
+    - Full-featured
+    - Designed to provide access to advanced parallel hardware for
+      - end users
+      - library writers
+      - tool developers
+4. __Pros/Cons of process and thread__
+  - ^ look at question 1
+5. __Basic steps of CUDA-baed GPU programming__
+  - CUDA	Device	Memory	Space	Overview
+    - Threads	and	blocks	have	IDs, so	each	thread	can	decide	what	data	to	work	on
+    - Simplifies	memory addressing	when	processing multidimensional	data
+      - Image	processing
+      - Solving	PDEs	on	volumes
+
+      ![image](block_thread.png )
+    - Each	thread	can:
+      - R/W	per-thread	registers
+      - R/W	per-thread	local	memory
+      - R/W	per-block	shared	memory
+      - R/W	per-grid	global	memory
+      - Read	only	per-grid	constant	memory
+      - Read	only	per-grid	texture	memory
+    - The host can R/W global, constant, and texture memories
+
+    ![image](memories.png )
+
+    ![image](1.png )
+
+    ![image](2.png )
+
+    ![image](3.png )
+
+    ![image](4.png )
+
+    ![image](5.png )
+
+    ![image](6.png )
+
+    ![image](7.png )
+
+    ![image](8.png )
+
+    ![image](9.png )
+
+    ![image](10.png )
+
+    ![image](11.png )
+
+    ![image](12.png )
+
+    ![image](13.png )
+    
+    ![image](14.png )
+
+5. __Compare MPI and RPC__
+
+  ![image](MPI_RPC.png )
+
+## Architectural style
+1. __Pipe__
+2. __Layer__
+3. __MVC__
