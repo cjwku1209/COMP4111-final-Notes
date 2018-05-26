@@ -340,3 +340,67 @@ resource that you are looking for
   ![image](UDDI_step3.png )
 
   ![image](UDDI_step4.png )
+
+## Component Based Software Engineering
+1. __Basic concepts of component-based Services__
+    - Component Model
+      - Define the types of building block and the recipe for putting them together
+      - More precisely, a component model defines standards for
+        - Properties individual components must satisfy
+        - Methods and mechanisms for composing components.
+      - Consequently, a component has to conform to some component model.
+    - Software Component
+      - implements some functionality
+      - Has explicit dependencies through provides and requires interfaces
+      - Communicates through its interface only
+      - Has structure and behavior that conforms to a component model.
+    - A component technology
+      - is the implementation of a component model, by means of:
+        - Standards and guidelines for the implementation and execution of software Components
+        - Executable software that supports the implementation, assembly, deployment, execution of component.
+2. __What's a container? What's good about the idea of using a container?__
+    - ___Professor key point___
+      - Separate them because make writing (enterprise level software) high quality for single programmer
+      - Good to separate difficult part from business.
+      - Quality part (concurrency part) can be coded in container by expert. Separation of word so you don’t need to write the entire code
+
+      ![image](container_model.png )
+3. __What's a session bean? Entity bean?__
+    - __Session Bean__
+      - associate client information with a specific client
+      - Represents a single Client inside the J2EE servers
+      - one client at a time/ not persistent
+      - When the client terminates, the session bean is disassociated from the clients
+      - Two Types
+        - _Stateful_
+          - represent a set of interactions between client and servers. E.g. Shopping cart
+          - Saves information over several method invocations.
+          - a lot of overhead associated with using stateful beans
+        - _Stateless_
+          - A stateless bean does not save information between method calls.
+          - limited application
+          - little overhead
+            - multiple clients can use the same bean instance without alteration
+          - Example: fetch from a read-only database or send confirmation email for an order.
+    - __Entity Bean__
+      - groups associated information in an abstraction that provides transaction support.
+      - Associates pieces of information in a group.
+      - Accessed by multiple clients at a time.
+      - Persistent and Serializable
+      - container loads and stores the entity beans in the database.
+      - Transactions: this is what makes an Entity Bean special.
+        - Entity beans rely on the container to enforce robust transactions.
+        - e.g.: Airline booking: if the flight booking action fails, then the credit card charge action fails, or vice versa.
+4. __What's persistence and how container supports it?__
+    - Persistence in Entity beans
+      - Container managed Persistence
+        - The container controls when the bean is read from or written to the database
+      - Bean managed Persistence
+        - the bean's implementation performs all of the sql operations that loads, stores, and updates the bean's data to or from the database
+        - Bean is responsible for connection allocation to the database.
+5. __What's a home interface? remote interface?__
+    - __Home Interface__
+      - 2 main functions of the home interface are creating and locating beans,
+      - Only entity beans needs methods to locate beans.
+    - __Remote Interface__
+      - Consists of remote methods you can call on a bean after the bean has been created and located.
