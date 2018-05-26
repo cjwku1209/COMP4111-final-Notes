@@ -568,12 +568,12 @@ resource that you are looking for
     ![image](12.png )
 
     ![image](13.png )
-    
+
     ![image](14.png )
 
 5. __Compare MPI and RPC__
 
-  ![image](MPI_RPC.png )
+  ![image](compare.png )
 
 ## Architectural style
 1. __Pipe__
