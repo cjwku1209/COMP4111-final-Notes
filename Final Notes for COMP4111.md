@@ -416,3 +416,31 @@ resource that you are looking for
     - Control Flow Graph (CFG) is a representation of all paths that might be transversed through a program during its execution.
       - _Nodes_ represent statements or basic blocks
       - _Edges_ represent the transfer of control between nodes.
+
+## Functional Programming
+- Can you write a Java function that takes a Java lambda expression?
+
+## Parallel Programming (Hardware)
+1. __What's hyper threading?__
+    - Combining Multi-core and Simultaneous	multithreading	(SMT)
+      - SMT: Permits	multiple	independent	threads	to	execute	SIMULTANEOUSLY	on	the	SAME	core. _Without	SMT, only	a	single thread	can	run	at any	given	time_
+        - Weaving	together	multiple	“threads”	on	the	same	core
+        -Example:	if	one	thread	is	waiting	for	a	floating	point	operation	to	complete,	another	thread	can	use	the	integer	units
+2. __Basic definition of multicore__
+  - threads	can	run	on	separate	cores.
+  - each	core	has	its	own	copy	of	resources
+3. __What's cache coherence problem?__
+![image](cache_coherence.png )
+  - Since we have private caches:
+    - How to keep the data consistent across caches?
+    -	Each core should perceive the memory as a monolithic array, shared by all the cores.
+  - Solution:
+    -	Exist many solution algorithms, coherence protocols, etc …
+    -	Simple solution: invalidation-based protocol with snooping.
+4. __Basic Architecture of GPU__
+  ![image](GPU.png )
+  - Own	memory,	up	to	4GB
+  - Up	to	30	multiprocessors	(cores),	each	core	has	8	thread	processors	(TPs)
+  - Cores	can	run	different	sequential	code.	All	TPs	in	the	same	core	run	the	same	sequential	code
+  - CPU	use	system	code	to	switch	threads.	GPU	does this	in	hardware.
+    – Hide	the	read	latency	if	we	have	a	large	number threads
