@@ -196,6 +196,7 @@ resource that you are looking for
   __Basic Web Service Usage Scenario__
 
   ![image](Web_Service_Scenerio.png )
+  
 2. __What's SOAP(Simple Object Access Protocol)?__
     - Light weight messaging framework based on XML.
     - Supports simple messaging and RPC.
@@ -219,10 +220,10 @@ resource that you are looking for
 
       ![image](SOAP_message.png )
 
-      #### SOAP Skeleton
+      - SOAP Skeleton
       ![image](SOAP_Skeleton.png )
 
-      #### SOAP Example
+      - SOAP Example
       ![image](SOAP_example.png )
 
     - __SOAP RPC__
