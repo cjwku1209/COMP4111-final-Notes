@@ -1,4 +1,3 @@
-consisting# COMP4111 Final
 ## Configuration Management
 1. __Main reasons for doing Configuration Management__
     - ___Professor Key Point:___ A recorder to record what you are doing.
