@@ -17,9 +17,9 @@
 3. __Differences between CVS/Subversion and Git___
     - __CVS__
       - Based on __RCS__, allows  concurrency without unlocking.
-      - __Subversion__
+    - __Subversion__
       - Based on __CVS__
-    - Subversion interface and features similar to CVS
+      - Subversion interface and features similar to CVS
         - Commands: checkout, add, delete, commit, diff
       - __Differences__
         - Version controlled moving, renaming, copying of files and directories.
