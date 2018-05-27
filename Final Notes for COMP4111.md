@@ -1,4 +1,4 @@
-# COMP4111 Final
+consisting# COMP4111 Final
 ## Configuration Management
 1. __Main reasons for doing Configuration Management__
     - ___Professor Key Point:___ A recorder to record what you are doing.
@@ -419,6 +419,167 @@ resource that you are looking for
 
 ## Functional Programming
 - Can you write a Java function that takes a Java lambda expression?
+  - __Common Functional Interface used__
+    - __Predicate<T>__
+      - Represents a predicate (boolean-valued function) of one argument
+      - Functional method is boolean ```Test(T, t)```
+        - Evaluate this Predicate on the given input ```argument (T,t)```
+        - Returns ```true``` if the input argument matches the predicate, otherwise ```false```.
+    - __Supplier<T>__
+      - Represents a supplier of results
+      - Functional method ```T get()```
+        - Returns a result of type ```T```
+    - __Consumer<T>__
+      - Represents an operation that accepts a single input and returns no results
+      - Functional method is ```void accept(T,t)```
+        - Performs this operation on given ```argument (T,t)```
+    - __Function<T,R>__
+      - Represents an operation that accepts one argument and produces a result
+        - Functional method is ```R apply(T,t)```
+          - Applies this function to the given ```argument (T,t)```
+          - Returns the function result
+    - __UnaryOperator<T>
+      - Represents an operation on a single operands that produces a result of same type as its operands.
+      - Functional method is ```R Function.apply(T,t)```
+        - Applies this function to given ```argument(T,t)```
+    - __BiFunction<T,U,R>__
+      - Represents an operation that accepts two arguments and produces a result
+      - Functional method is ```R apply(T t, U u)```
+        - Applies this function to the given arguments (T t, U u)
+        - Returns the function result
+    - __BinaryOperator<T>__
+      - ```Extends BiFunction<T, U, R>```
+      - Represents an operation upon two operands of the same type, producing a result of the same type as the operands.
+      - Functional method is ```R BiFunction.apply(T t, U u)```
+        - applies this function to the given ```arguments (T t, U u)```, where R,T,U are the same type.
+        - returns the function result
+    - __Comparator<T>__
+      - Compares its two arguments for order
+      - Functional method is ```int compareTo(T o1, T o2)```
+        - returns a negative integer, zero or a positive integer as the first argument is less than, equal or greater than the second.
+  - __Creating Streams__
+    - From individual values
+      - ```Stream.of(val1, val2, ...)```
+    - From array
+      - ```Stream.of(someArray)```
+      - ```Arrays.stream(someArray)```
+    - From List (and other Collections)
+      - ```someList.stream()```
+      - ```someOtherCollection.stream()```
+  - __Anatomy of the Stream Pipeline__
+    - A Stream is processed through a pipeline of operations
+    - A Stream __starts__ with a __source data structure__
+    - ___Intermediate methods___ are __performed__ on the ```Stream elements```. These methods __produce__ ```Streams``` and are ___not processed until___ the ```terminal method``` is called.
+    - The ```Stream``` is considered __consumed__ when a ```terminal operation``` is __invoked__. __No other operation can be performed__ on the Stream elements __afterwards__
+    - A ```Stream pipeline``` contains some ```short-circuit methods``` (which could be intermediate or terminal methods) that __cause the earlier__ ```intermediate methods``` to be ___processed only until___ the ```short-circuit``` method can be __evaluated__.
+    - __Intermediate Methods__
+      - map, filter, sorted, peek, limit, parallel
+    - __Terminal Methods__
+      - forEach, toArray, reduce, collect, min, max, count, anyMatch, noneMatch, findFirst, findArray, iterator
+    - __Short-circuit Methods__
+      - anyMatch, allMatch, noneMatch, findFirst, findAny, limit
+  - __Common Stream API Methods used__
+    - ```void forEach(Consumer)```
+      - for loop
+      ```Java
+      Employees.forEach(e -> e.setSalary(e.getSalary() * 11 /10))
+      ```
+    - ```Stream<T> map(Function)```
+      - Produces a new Stream that is the result of applying a Function to each element of original Stream
+  ```Java
+  Ids.map(EmployeeUtils::findEmployeeId)
+  ```
+        - Creates a new Stream of Employee ids
+    - ```Stream<T> filter(Predicate)```
+      - Produces a ```new Stream``` that contains only the elements of the original Stream that __passes a given test__.  
+  ```Java
+  employees.filter(e -> e.getSalary() > 10000)
+  ```
+    - ```Optional<T> findFirst()```
+      - Returns an Optional for the first entry in the Stream
+      ```Java
+      employees.filter(...).findFirst().orElse(Consultant)
+      ```
+        - Get the first Employee entry that passes the filter.
+    - ```Object[] toArray(Supplier)```
+      - Reads the Stream of elements into an array
+      ```Java
+      Employee[] emptyArray = employees.toArray(Employee::new);
+      ```
+        - Creates an array of Employee out of the Stream of Employees.
+    - ```List<T> collect(Collectors.toList())```
+      - Reads the Stream of elements into a List or any other collection
+      ```Java
+      List<Employee> empList = employees.collect(Collectors.toList());
+      ```
+      - __partitionBy__
+        - You provide a Predicate. It builds a Map where true maps to a List of entries that passed the Predicate, and false maps to List that failed the predicate.
+        ```Java
+        Map<Boolean, List<Employee>> richTable = googlers().collect(partionBy(e -> e.getSalary > 100000));
+        ```
+      - __groupBy__
+        - You provide a Function. It builds a Map where each output value of the Function maps to a List of entries that gave that value.
+        ```Java
+        Map<Department, List<Employee>> deptTable = employeeStream().collect(groupBy(Employeee::getDepartment));
+        ```
+    - ```T reduce(T identity, BinaryOperator)```
+      - You start with a seed (identity) value, then combine this value with the first Entry in the Stream, combine the second entry of the Stream, etc.
+        ```Java
+        Nums.stream().reduce(1, (n1,n2) -> n1* n2);
+        ```
+        - Calculate the product of the number.
+        - ```IntStream``` (Stream on primitive int) has built-in ```sum()```, ```min()``` and ```max()``` methods.
+    - ```Stream<T> limit(long maxSize)```
+      - ```limit(n)``` returns a stream of the first n elements
+      ```Java
+      someLongStream.limit(10);
+      ```
+        - first 10 element
+    - ```Stream<T> skip(long n)```
+      -```skip(n)``` returns a stream starting with element n
+      ```Java
+      twentyElementStream.skip(5);
+      ```
+        - last 15 elements
+    - ```Stream<T> sorted(Comparator)```
+      - Returns a ```stream``` consisting of the elements of this stream, sorted according to the provided Comparator
+      ```Java
+      empStream.map(...).filter(...).limit(...).sorted((e1, e2) -> e1.getSalary() - e2.getSalary());
+      ```
+        - Employee sorted by salary
+    - ```Stream<T> min(Comparator)```
+      - Returns the min element in this ```Stream``` according to the Comparator.
+      ```Java
+      ids.stream().map(Employee::findGoogler).min((e1, e2) -> e1.getLastName().compareTo(e2.getLastName())).get();
+      ```
+      - Get Googler with earliest lastName
+    - ```Optional<T> max(Comparator)```
+      - returns the max element in this Stream according to the comparator.
+      ```Java
+      ids.stream().map(EmployeeSamples::findGoogler).max((e1, e2) -> e1.getSalary- e2.getSalary()).get();
+      ```
+        - Get richest Employee
+    - ```Stream<T> distinct```
+      - Returns a stream consisting of the distinct elements of this stream.
+      ```Java
+      List<Employee> emps4 = ids2.stream().map(EmployeeSamples::findGoogler).distinct().collect(toList());
+      ```
+        - Get a list of distinct Employees.
+    - ```Boolean anyMatch(Predicate)```, ```allMatch(Predicate)```, ```noneMatch(Predicate)```
+      - Returns ```true``` if ```Stream``` passes, ```false``` otherwise.
+      ```Java
+      employeeStream.anyMatch(e -> e.getSalary() > 500000);
+      ```
+    - ```long count()```
+      - Returns count of element in the Stream.
+      ```Java
+      employeeStream.filter(somePredicate).count()
+      ```
+
+    ![image](onFly.png)
+
+    ![image](lambda_example.png)
+
 
 ## Parallel Programming (Hardware)
 1. __What's hyper threading?__
@@ -440,7 +601,7 @@ resource that you are looking for
 4. __Basic Architecture of GPU__
   - NVidia	CUDA	Block	Diagram
 
-  ![image](GPU.png )
+  ![image](GPU.png)
   - Own	memory,	up	to	4GB
   - Up	to	30	multiprocessors	(cores),	each	core	has	8	thread	processors	(TPs)
   - Cores	can	run	different	sequential	code.	All	TPs	in	the	same	core	run	the	same	sequential	code
