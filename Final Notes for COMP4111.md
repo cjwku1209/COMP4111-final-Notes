@@ -7,19 +7,19 @@
       - The initial release or re-release of a configuration item associated with a complete compilation or recompilation of the item. Different versions have different functionality.
     - __Baseline:__
       - A specification or product that has been formally reviewed and agreed to by responsible management, that thereafter serves as the basis for further development, and can be changed only through formal change control procedures.
-      - __Promotion (check-out/check-ins):__
+    - __Promotion (check-out/check-ins):__
       - The internal development state of a software is changed
     - __Release:__
       - The formal distribution of an approved version to users.
       - A changed software system is made visible outside the development organization.
-      - __Revision:__
+    - __Revision:__
       - Changes to controlled artifacts, which could lead to a new version or new release.
 3. __Differences between CVS/Subversion and Git___
     - __CVS__
       - Based on __RCS__, allows  concurrency without unlocking.
       - __Subversion__
       - Based on __CVS__
-        - Subversion interface and features similar to CVS
+    - Subversion interface and features similar to CVS
         - Commands: checkout, add, delete, commit, diff
       - __Differences__
         - Version controlled moving, renaming, copying of files and directories.
@@ -196,7 +196,7 @@ resource that you are looking for
   __Basic Web Service Usage Scenario__
 
   ![image](Web_Service_Scenerio.png )
-  
+
 2. __What's SOAP(Simple Object Access Protocol)?__
     - Light weight messaging framework based on XML.
     - Supports simple messaging and RPC.
