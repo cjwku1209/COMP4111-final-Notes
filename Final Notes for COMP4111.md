@@ -580,7 +580,6 @@ resource that you are looking for
 
     ![image](lambda_example.png)
 
-
 ## Parallel Programming (Hardware)
 1. __What's hyper threading?__
     - Combining Multi-core and Simultaneous	multithreading	(SMT)
@@ -738,5 +737,21 @@ resource that you are looking for
 
 ## Architectural style
 1. __Pipe__
+
+![image](pipe1.png )
+
+![image](pipe2.png )
+
 2. __Layer__
+
+![image](layer1.png )
+
+![image](layer2.png )
+
 3. __MVC__
+
+![image](MVC.png )
+
+![image](MVC1.png )
+
+![image](MVC2.png )
